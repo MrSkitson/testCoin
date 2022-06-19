@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class GUIscript : MonoBehaviour
 {
-    static int score;
+    static int coin;
     public Texture icon;
     
     
@@ -26,7 +26,7 @@ public class GUIscript : MonoBehaviour
 
         //Label showing actual score
         //if I find a texture for Coin
-        GUI.Label(new Rect(50, 30, 80, 60), new GUIContent("Coins " + score, icon));
+        GUI.Label(new Rect(50, 30, 80, 60), new GUIContent("Coins " + coin, icon));
        // GUI.Label(new Rect(20, 30, 80, 50), ("Coins: " + score));
 
         //Button menu
@@ -39,8 +39,14 @@ public class GUIscript : MonoBehaviour
         }
 
     }
-    private void OnCollisionEnter(Collision collision)
+    public void OnTriggerEnter(Collider collision)
     {
-        //place to add cillosion beetwen player and coin
+        if(collision.gameObject.tag == "Coin")
+        {
+            Debug.Log("Coin");
+            coin++;
+            Destroy(collision.gameObject);
+           
+        }
     }
 }
