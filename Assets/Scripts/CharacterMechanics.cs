@@ -16,12 +16,13 @@ public class CharacterMechanics : MonoBehaviour
     private CharacterController ch_controller;
     public Animator ch_animator;
     private Rigidbody rb;
+    private MobileController mobileController;
     // Start is called before the first frame update
     void Start()
     {
         ch_controller = GetComponent<CharacterController>();
         ch_animator = GetComponent<Animator>();
-        
+        mobileController = GameObject.FindGameObjectWithTag("Joystick").GetComponent<MobileController>();
     }
 
     // Update is called once per frame
@@ -38,9 +39,12 @@ public class CharacterMechanics : MonoBehaviour
         if (ch_controller.isGrounded)
         {
             moveVector = Vector3.zero;
-            moveVector.x = Input.GetAxis("Horizontal") * speedMove;
-            moveVector.z = Input.GetAxis("Vertical") * speedMove;
+           // moveVector.x = Input.GetAxis("Horizontal") * speedMove;
+          //  moveVector.z = Input.GetAxis("Vertical") * speedMove;
 
+            moveVector.x = mobileController.Horizontal() * speedMove;
+            moveVector.z = mobileController.Vertical() * speedMove;
+            
 
             // animation movement character
             if (moveVector.x != 0 || moveVector.z != 0) ch_animator.SetBool("Move", true);
