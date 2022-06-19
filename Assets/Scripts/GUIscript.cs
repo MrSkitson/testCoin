@@ -26,12 +26,12 @@ public class GUIscript : MonoBehaviour
 
         //Label showing actual score
         //if I find a texture for Coin
-        GUI.Label(new Rect(20, 30, 80, 50), new GUIContent(" " + score, icon));
+        GUI.Label(new Rect(50, 30, 80, 60), new GUIContent("Coins " + score, icon));
        // GUI.Label(new Rect(20, 30, 80, 50), ("Coins: " + score));
 
         //Button menu
 
-        if (GUI.Button(new Rect(Screen.width - 100, 0, 100, 50), "Menu"))
+        if (GUI.Button(new Rect(Screen.width - 100, 25, 100, 50), "Menu"))
         {
             SceneManager.LoadScene("Menu");
             // Application.LoadLevel("Menu");

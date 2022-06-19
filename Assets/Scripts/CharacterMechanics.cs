@@ -14,7 +14,7 @@ public class CharacterMechanics : MonoBehaviour
     
     //Components
     private CharacterController ch_controller;
-    private Animator ch_animator;
+    public Animator ch_animator;
     private Rigidbody rb;
     // Start is called before the first frame update
     void Start()

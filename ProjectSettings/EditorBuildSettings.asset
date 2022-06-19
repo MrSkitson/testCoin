@@ -6,9 +6,15 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Menu.unity
-    guid: 9fc0d4010bbf28b4594072e72b8655ab
-  - enabled: 1
     path: Assets/Scenes/Game.unity
+    guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 0
+    path: Assets/Scenes/TestGame.unity
     guid: e78eb193d001cea488896a3521d0283d
+  - enabled: 0
+    path: Assets/Jammo-Character/Scenes/JammoScene.unity
+    guid: 7c6d3200849266049b176188be3281e4
+  - enabled: 1
+    path: Assets/Scenes/Menu.unity
+    guid: f091be1a92e56f9429598f68aad4324b
   m_configObjects: {}
