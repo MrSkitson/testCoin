@@ -13,24 +13,24 @@ public class Coin : MonoBehaviour
     void Start()
     {
         
-        InvokeRepeating("RespCoin", 2f, 5f);
+        InvokeRepeating("RespCoin", 2f, 3f);
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.Rotate(0, 0, turnSpeed * Time.deltaTime);
+        
         
        //transform.Translate(direction * Time.deltaTime);
     }
 
     private void FixedUpdate()
     {
-        if (transform.position.y != 1)
-        {
-          //  transform.Translate(direction.normalized * speedCoin);
-        } 
-             
+        //if (transform.position.y != 1)
+        //{
+        //  //  transform.Translate(direction.normalized * speedCoin);
+        //} 
+        transform.Rotate(0, 0, turnSpeed * Time.deltaTime);
     }
    
     private void OnTriggerEnter(Collider other)

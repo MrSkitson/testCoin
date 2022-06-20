@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class GUIscript : MonoBehaviour
 {
     static int coin;
-    public Texture icon;
+    [SerializeField] private Texture icon;
     
     
     // Start is called before the first frame update
@@ -25,13 +25,11 @@ public class GUIscript : MonoBehaviour
 
 
         //Label showing actual score
-        //if I find a texture for Coin
-        GUI.Label(new Rect(50, 30, 80, 60), new GUIContent("Coins " + coin, icon));
-       // GUI.Label(new Rect(20, 30, 80, 50), ("Coins: " + score));
+       GUI.Label(new Rect(50, 20, 80, 60), new GUIContent(" " + coin, icon));
 
         //Button menu
 
-        if (GUI.Button(new Rect(Screen.width - 100, 25, 100, 50), "Menu"))
+        if (GUI.Button(new Rect(Screen.width - 100, 20, 100, 50), "Menu"))
         {
             SceneManager.LoadScene("Menu");
             // Application.LoadLevel("Menu");

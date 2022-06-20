@@ -9,6 +9,7 @@ public class CoinMover : MonoBehaviour
     public float step;
     private float progress;
     private float spawnRange = 4f;
+    bool CoinsStop = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,5 +24,10 @@ public class CoinMover : MonoBehaviour
     {
         transform.position = Vector2.Lerp(startPosition, endPosition, progress);
         progress += step;
+        if (step > 0)
+            CoinsStop = true;
+        // Destroy coin between 5 sec if endPosition
+        if (CoinsStop = true)
+        Destroy(gameObject, 5.0f); 
     }
 }

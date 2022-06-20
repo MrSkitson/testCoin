@@ -26,7 +26,7 @@ public class GameManager : MonoBehaviour
     {
         float spawnPosX = Random.Range(-spawnRange, spawnRange);
         float spawnPosZ = Random.Range(-spawnRange, spawnRange);
-        Vector3 randomSpown = new Vector3(spawnPosX, 4, spawnPosZ);
+        Vector3 randomSpown = new Vector3(spawnPosX, 5, spawnPosZ);
 
         return randomSpown;
     }
