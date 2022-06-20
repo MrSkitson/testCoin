@@ -25,7 +25,10 @@ public class PlayerController : MonoBehaviour
 
         PlayerMove();
     }
-
+    private void FixedUpdate()
+    {
+        
+    }
 
     private void PlayerMove()
     {
