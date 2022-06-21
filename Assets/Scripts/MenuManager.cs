@@ -11,11 +11,11 @@ public class MenuManager : MonoBehaviour
    //public Toggle Music;
    //public Toggle SFX;
     public AudioClip clip;
-
+    public Animator menuAnimator;
     // Start is called before the first frame update
     void Start()
     {
-        
+        menuAnimator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -42,4 +42,13 @@ public class MenuManager : MonoBehaviour
         // AudioSource.PlayClipAtPoint(clip, transform.position); 
     }
     
+    public void OnSettingsClicked()
+    {
+        menuAnimator.SetTrigger("setClicked");
+    }
+
+    public void InBackClicked()
+    {
+        menuAnimator.SetTrigger("backClicked");
+    }
 }
