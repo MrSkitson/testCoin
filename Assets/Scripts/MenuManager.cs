@@ -37,7 +37,9 @@ public class MenuManager : MonoBehaviour
     }
     public void OnclickButtonStart()
     {
+        SceneTransition.SwitchToScene("Game");
         //AudioScript.ASinstance.musicButton.Play();
-        AudioSource.PlayClipAtPoint(clip, transform.position); 
+        // AudioSource.PlayClipAtPoint(clip, transform.position); 
     }
+    
 }
