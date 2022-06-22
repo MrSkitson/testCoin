@@ -1,0 +1,11 @@
+ManifestFileVersion: 0
+CRC: 2717576515
+AssetBundleManifest:
+  AssetBundleInfos:
+    Info_0:
+      Name: xbot.1
+      Dependencies:
+        Dependency_0: coin.1
+    Info_1:
+      Name: coin.1
+      Dependencies: {}

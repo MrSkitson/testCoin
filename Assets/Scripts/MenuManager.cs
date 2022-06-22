@@ -7,19 +7,26 @@ using UnityEngine.UI;
 public class MenuManager : MonoBehaviour
 {
     public AudioClip buttonClicked;
-
+    public Toggle Music;
+    public Toggle SFX;
     public AudioClip clip;
     public Animator menuAnimator;
+    
     // Start is called before the first frame update
 
     public void Awake()
     {
         
-        SoundManager.Instance.PlayMusic(clip);
     }
     void Start()
     {
+      
         menuAnimator = GetComponent<Animator>();
+        if (SoundManager.Instance.musicOn == false)
+            SoundManager.Instance.MusicSource.Stop();
+        else
+            SoundManager.Instance.PlayMusic(clip);
+        
     }
 
     // Update is called once per frame
@@ -29,57 +36,56 @@ public class MenuManager : MonoBehaviour
     }
    public  void MusicToggle()
     {
-        if (SoundManager.Instance.MusicSource.isPlaying)
-        {
-            SoundManager.Instance.musicOff = true;
-            SoundManager.Instance.MusicSource.Stop();
-            SoundManager.Instance.GameSource.Stop();
 
+        if (Music.isOn == false)
+        {
+            SoundManager.Instance.MusicSource.Stop();
+            SoundManager.Instance.musicOn = false;
         }
-            
-        
         else
         {
-            
             SoundManager.Instance.PlayMusic(clip);
-            SoundManager.Instance.musicOff = false;
-
+            SoundManager.Instance.musicOn = true;
         }
-        
 
     }
     public void SFXToggle()
     {
-        SoundManager.Instance.Play(buttonClicked);
-
-        if (SoundManager.Instance.EffectsSource.isActiveAndEnabled)
-
+            if (SFX.isOn == false)
             SoundManager.Instance.EffectsSource.Stop();
-        else
-        {
-            SoundManager.Instance.EffectsSource.Play();
-        }
-
+        else SoundManager.Instance.EffectsSource.Stop();
         
     }
 
     public void OnclickButtonStart()
     {
-        SoundManager.Instance.Play(buttonClicked);
+        if (SFX.isOn == true)
+        {
+            SoundManager.Instance.Play(buttonClicked);
+        }
+        else SoundManager.Instance.EffectsSource.UnPause();
         SceneTransition.SwitchToScene("Game");
+
      
     }
     
     public void OnSettingsClicked()
     {
-        SoundManager.Instance.Play(buttonClicked);
+        if (SFX.isOn == true)
+        {
+            SoundManager.Instance.Play(buttonClicked);
+
+        }
+        else SoundManager.Instance.EffectsSource.UnPause();
         menuAnimator.SetTrigger("setClicked");
         
     }
 
     public void InBackClicked()
     {
-        SoundManager.Instance.Play(buttonClicked);
+        if (SFX.isOn == true)
+            SoundManager.Instance.Play(buttonClicked);
+        else SoundManager.Instance.EffectsSource.UnPause();
         menuAnimator.SetTrigger("backClicked");
     }
 }

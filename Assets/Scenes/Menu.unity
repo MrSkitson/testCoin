@@ -327,6 +327,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buttonClicked: {fileID: 8300000, guid: b132bd4a5cb254e86af70a96495bba20, type: 3}
+  Music: {fileID: 1425538962}
+  SFX: {fileID: 1495337049}
   clip: {fileID: 8300000, guid: 5d6e42b338547477aa7a88708f894463, type: 3}
   menuAnimator: {fileID: 405287657}
 --- !u!1 &445540815
@@ -834,7 +836,7 @@ AudioSource:
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -2298,6 +2300,10 @@ PrefabInstance:
     - target: {fileID: 4037160855408063113, guid: 393640c50914811458617736ab16ceb2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5824973694289946591, guid: 393640c50914811458617736ab16ceb2, type: 3}
+      propertyPath: Loop
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 393640c50914811458617736ab16ceb2, type: 3}
