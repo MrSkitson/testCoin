@@ -2,18 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-//using UnityEngine.SceneManagement;
+
 
 public class MenuManager : MonoBehaviour
 {
-   
+    public AudioClip buttonClicked;
 
-
-   //public Toggle Music;
-   //public Toggle SFX;
     public AudioClip clip;
     public Animator menuAnimator;
     // Start is called before the first frame update
+
+    public void Awake()
+    {
+        
+        SoundManager.Instance.PlayMusic(clip);
+    }
     void Start()
     {
         menuAnimator = GetComponent<Animator>();
@@ -26,30 +29,57 @@ public class MenuManager : MonoBehaviour
     }
    public  void MusicToggle()
     {
-        if (AudioScript.ASinstance.Music.isPlaying)
+        if (SoundManager.Instance.MusicSource.isPlaying)
         {
-            AudioScript.ASinstance.Music.Pause();
+            SoundManager.Instance.musicOff = true;
+            SoundManager.Instance.MusicSource.Stop();
+            SoundManager.Instance.GameSource.Stop();
 
         }
+            
+        
         else
         {
-            AudioScript.ASinstance.Music.Play();
+            
+            SoundManager.Instance.PlayMusic(clip);
+            SoundManager.Instance.musicOff = false;
+
         }
+        
+
     }
+    public void SFXToggle()
+    {
+        SoundManager.Instance.Play(buttonClicked);
+
+        if (SoundManager.Instance.EffectsSource.isActiveAndEnabled)
+
+            SoundManager.Instance.EffectsSource.Stop();
+        else
+        {
+            SoundManager.Instance.EffectsSource.Play();
+        }
+
+        
+    }
+
     public void OnclickButtonStart()
     {
+        SoundManager.Instance.Play(buttonClicked);
         SceneTransition.SwitchToScene("Game");
-        //AudioScript.ASinstance.musicButton.Play();
-        // AudioSource.PlayClipAtPoint(clip, transform.position); 
+     
     }
     
     public void OnSettingsClicked()
     {
+        SoundManager.Instance.Play(buttonClicked);
         menuAnimator.SetTrigger("setClicked");
+        
     }
 
     public void InBackClicked()
     {
+        SoundManager.Instance.Play(buttonClicked);
         menuAnimator.SetTrigger("backClicked");
     }
 }

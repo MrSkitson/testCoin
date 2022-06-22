@@ -8,10 +8,6 @@ public class AudioScript : MonoBehaviour
     public  AudioSource Music;
     
 
-
-
-
-
     public void Awake()
     {
         if(ASinstance != null && ASinstance != this)
