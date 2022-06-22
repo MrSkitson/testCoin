@@ -7,19 +7,26 @@ using UnityEngine.UI;
 public class MenuManager : MonoBehaviour
 {
     public AudioClip buttonClicked;
-
+    
     public AudioClip clip;
     public Animator menuAnimator;
+    
     // Start is called before the first frame update
 
     public void Awake()
     {
-        
-        SoundManager.Instance.PlayMusic(clip);
+        SoundManager.Instance.musicOn = true;
+       // SoundManager.Instance.PlayMusic(clip);
+      SoundManager soundManager = GetComponent<SoundManager>();
     }
     void Start()
     {
         menuAnimator = GetComponent<Animator>();
+        if (SoundManager.Instance.musicOn == false)
+            SoundManager.Instance.MusicSource.Stop();
+        else
+            SoundManager.Instance.MusicSource.Play();
+        
     }
 
     // Update is called once per frame
@@ -31,10 +38,11 @@ public class MenuManager : MonoBehaviour
     {
         if (SoundManager.Instance.MusicSource.isPlaying)
         {
-            SoundManager.Instance.musicOff = true;
+            
             SoundManager.Instance.MusicSource.Stop();
-            SoundManager.Instance.GameSource.Stop();
-
+            SoundManager.Instance.GameSource.mute = true;
+            SoundManager.Instance.musicOn = false;
+            
         }
             
         
@@ -42,8 +50,9 @@ public class MenuManager : MonoBehaviour
         {
             
             SoundManager.Instance.PlayMusic(clip);
-            SoundManager.Instance.musicOff = false;
-
+            SoundManager.Instance.musicOn = true;
+            // SoundManager.Instance.GameSource.mute = true;
+            
         }
         
 

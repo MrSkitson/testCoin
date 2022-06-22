@@ -14,18 +14,19 @@ public class GameManager : MonoBehaviour
 
     public void Awake()
     {
-        
-        
-            
-        
+
     }
     // Start is called before the first frame update
     void Start()
     {
         InvokeRepeating("RespCoin", 2f, 3f);
-        if (SoundManager.Instance.musicOff && SoundManager.Instance.GameSource.isPlaying)
+
+        if (SoundManager.Instance.musicOn == false)
             SoundManager.Instance.GameSource.Stop();
-        else SoundManager.Instance.GameSource.Play();
+        
+        else
+            SoundManager.Instance.GameSource.Play();
+
     }
 
     // Update is called once per frame

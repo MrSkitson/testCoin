@@ -12,7 +12,7 @@ public class SoundManager : MonoBehaviour
 	public float HighPitchRange = 1.05f;
 	// Singleton instance.
 	public static SoundManager Instance = null;
-	public bool musicOff = false;
+	public bool musicOn = false;
 
 	// Initialize the singleton instance.
 	private void Awake()
@@ -26,6 +26,7 @@ public class SoundManager : MonoBehaviour
 		else if (Instance != this)
 		{
 			Destroy(gameObject);
+			
 		}
 		//Set SoundManager to DontDestroyOnLoad so that it won't be destroyed when reloading our scene.
 		DontDestroyOnLoad(gameObject);
@@ -41,7 +42,7 @@ public class SoundManager : MonoBehaviour
 	public void PlayMusic(AudioClip clip)
 	{
 		MusicSource.clip = clip;
-		if (MusicSource.isPlaying)
+		if (musicOn == false)
 		{
 			MusicSource.Stop();
 			//musicOn = false;
@@ -53,28 +54,29 @@ public class SoundManager : MonoBehaviour
 		}
 
 		
-		MusicSource.Play();
+		//MusicSource.Play();
 	}
 	public void PlayGameMusic(AudioClip clip)
 	{
-		musicOff = false;
-		GameSource.clip = clip;
-		if (musicOff)
-		{
-					
-			GameSource.Stop();
-		}
-		else
-		{
-			GameSource.Play();
-		}
 		
-		//GameSource.Play();
+		
+
+        if (musicOn == false)
+        {
+
+            GameSource.Stop();
+        }
+        else
+        {
+            GameSource.Play();
+        }
+		GameSource.clip = clip;
+		// GameSource.Play();
 	}
 
 
-		// Play a random clip from an array, and randomize the pitch slightly.
-		public void RandomSoundEffect(params AudioClip[] clips)
+    // Play a random clip from an array, and randomize the pitch slightly.
+    public void RandomSoundEffect(params AudioClip[] clips)
 	{
 		int randomIndex = Random.Range(0, clips.Length);
 		float randomPitch = Random.Range(LowPitchRange, HighPitchRange);
