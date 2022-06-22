@@ -20,12 +20,9 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         InvokeRepeating("RespCoin", 2f, 3f);
-
-        if (SoundManager.Instance.musicOn == false)
-            SoundManager.Instance.GameSource.Stop();
-        
-        else
-            SoundManager.Instance.GameSource.Play();
+        if (SoundManager.Instance.musicOn)
+            SoundManager.Instance.PlayGameMusic(gameMusic);
+        else SoundManager.Instance.GameSource.Pause();
 
     }
 

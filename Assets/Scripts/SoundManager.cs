@@ -12,7 +12,7 @@ public class SoundManager : MonoBehaviour
 	public float HighPitchRange = 1.05f;
 	// Singleton instance.
 	public static SoundManager Instance = null;
-	public bool musicOn = false;
+	public bool musicOn = true;
 
 	// Initialize the singleton instance.
 	private void Awake()
@@ -29,7 +29,7 @@ public class SoundManager : MonoBehaviour
 			
 		}
 		//Set SoundManager to DontDestroyOnLoad so that it won't be destroyed when reloading our scene.
-		//DontDestroyOnLoad(gameObject);
+		DontDestroyOnLoad(gameObject);
 	}
 	// Play a single clip through the sound effects source.
 	public void Play(AudioClip clip)
@@ -42,36 +42,14 @@ public class SoundManager : MonoBehaviour
 	public void PlayMusic(AudioClip clip)
 	{
 		MusicSource.clip = clip;
-		if (musicOn == false)
-		{
-			MusicSource.Stop();
-			//musicOn = false;
-		}
-		else
-		{
-			MusicSource.Play();
-			//musicOn = true;
-		}
-
+		MusicSource.Play();
 		
-		//MusicSource.Play();
 	}
 	public void PlayGameMusic(AudioClip clip)
 	{
-		
-		
-
-        if (musicOn == false)
-        {
-
-            GameSource.Stop();
-        }
-        else
-        {
-            GameSource.Play();
-        }
 		GameSource.clip = clip;
-		// GameSource.Play();
+		GameSource.Play();
+
 	}
 
 
