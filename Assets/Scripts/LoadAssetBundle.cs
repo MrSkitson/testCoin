@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class LoadAssetBundle : MonoBehaviour
 {
-    string url = ""; //LINk google
+    string url = "https://drive.google.com/uc?export=download&id=1JqvGVS3e18zcR60FWGeCMvtjc5pvRSNv"; //LINk google
     // Start is called before the first frame update
     void Start()
     {
         WWW wWW = new WWW(url);
+        StartCoroutine(WebReq(wWW));
     }
 
   IEnumerator WebReq(WWW wWW)
@@ -23,7 +24,10 @@ public class LoadAssetBundle : MonoBehaviour
         AssetBundle bundle = wWW.assetBundle;
         if(wWW.error == null)
         {
-            GameObject obj = (GameObject)bundle.LoadAsset("");
+            GameObject obj = (GameObject)bundle.LoadAsset("xbot");
+            
+            Instantiate(obj);
+           
             
         }
         else

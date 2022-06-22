@@ -1,0 +1,48 @@
+ManifestFileVersion: 0
+CRC: 1558907022
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 6900be6786782f2c651e4889378042db
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 486f2c40aec74713d5fad706e6b59ac5
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 23
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 33
+  Script: {instanceID: 0}
+- Class: 43
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 74
+  Script: {instanceID: 0}
+- Class: 91
+  Script: {instanceID: 0}
+- Class: 95
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: 6ea1a809802acc84ab4be6e61edad059, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 3707fd8c009883a44871055e7f470340, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+- Class: 135
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/Prefabs/Coin.prefab
+- Assets/Prefabs/COIN.png
+Dependencies: []

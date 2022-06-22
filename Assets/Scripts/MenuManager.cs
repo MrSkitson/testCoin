@@ -76,6 +76,7 @@ public class MenuManager : MonoBehaviour
     {
         SoundManager.Instance.Play(buttonClicked);
         SceneTransition.SwitchToScene("Game");
+
      
     }
     
