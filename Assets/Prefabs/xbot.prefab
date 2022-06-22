@@ -2431,7 +2431,6 @@ GameObject:
   - component: {fileID: 8630581496457250294}
   - component: {fileID: 8630581496457250291}
   - component: {fileID: 8630581496457250249}
-  - component: {fileID: 8630581496457250290}
   - component: {fileID: 8630581496457250288}
   m_Layer: 0
   m_Name: xbot
@@ -2540,21 +2539,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 4
   rotationSpeed: 0
---- !u!114 &8630581496457250290
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8864374846229444762}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 81a4558bc8fb66b4e8e17cdd3b041b3d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speedMove: 1
-  jumpPower: 0
-  ch_animator: {fileID: 2787562749056809050}
 --- !u!114 &8630581496457250288
 MonoBehaviour:
   m_ObjectHideFlags: 0

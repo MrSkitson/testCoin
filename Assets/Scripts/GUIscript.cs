@@ -43,7 +43,7 @@ public class GUIscript : MonoBehaviour
     {
         if(collision.gameObject.tag == "Coin")
         {
-            Debug.Log("Coin");
+            
             coin++;
             Destroy(collision.gameObject);
            

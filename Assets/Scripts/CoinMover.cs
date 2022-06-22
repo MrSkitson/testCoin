@@ -16,15 +16,19 @@ public class CoinMover : MonoBehaviour
 
         float spawnPosX = Random.Range(-spawnRange, spawnRange);
         float spawnPosZ = Random.Range(-spawnRange, spawnRange);
+        //get start posotion Coin 
         transform.position = startPosition;
+        //gset end position  Coin
         endPosition = new Vector3(spawnPosX, endPosition.y, spawnPosZ);
     }
 
     private void FixedUpdate()
     {
+        //Moving Coin to end position
         transform.position = Vector2.Lerp(startPosition, endPosition, progress);
         progress += step;
+        //Destiroy Coin in 5 sec
         if(endPosition != null)
-        Destroy(gameObject, 5.0f); 
+                Destroy(gameObject, 5.0f); 
     }
 }
