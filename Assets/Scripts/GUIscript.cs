@@ -31,7 +31,9 @@ public class GUIscript : MonoBehaviour
 
         if (GUI.Button(new Rect(Screen.width - 100, 20, 100, 50), "Menu"))
         {
-            SceneManager.LoadScene("Menu");
+            
+            SceneTransition.SwitchToScene("Menu");
+            //SceneManager.LoadScene("Menu");
             // Application.LoadLevel("Menu");
             
         }
@@ -41,7 +43,7 @@ public class GUIscript : MonoBehaviour
     {
         if(collision.gameObject.tag == "Coin")
         {
-            Debug.Log("Coin");
+            
             coin++;
             Destroy(collision.gameObject);
            

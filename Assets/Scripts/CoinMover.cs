@@ -8,26 +8,27 @@ public class CoinMover : MonoBehaviour
     public Vector3 endPosition;
     public float step;
     private float progress;
-    private float spawnRange = 4f;
-    bool CoinsStop = false;
+    private float spawnRange = 3.5f;
+    
     // Start is called before the first frame update
     void Start()
     {
 
         float spawnPosX = Random.Range(-spawnRange, spawnRange);
         float spawnPosZ = Random.Range(-spawnRange, spawnRange);
+        //get start posotion Coin 
         transform.position = startPosition;
+        //gset end position  Coin
         endPosition = new Vector3(spawnPosX, endPosition.y, spawnPosZ);
     }
 
     private void FixedUpdate()
     {
+        //Moving Coin to end position
         transform.position = Vector2.Lerp(startPosition, endPosition, progress);
         progress += step;
-        if (step > 0)
-            CoinsStop = true;
-        // Destroy coin between 5 sec if endPosition
-        if (CoinsStop = true)
-        Destroy(gameObject, 5.0f); 
+        //Destiroy Coin in 5 sec
+        if(endPosition != null)
+                Destroy(gameObject, 5.0f); 
     }
 }

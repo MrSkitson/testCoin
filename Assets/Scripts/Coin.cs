@@ -4,17 +4,9 @@ using UnityEngine;
 
 public class Coin : MonoBehaviour
 {
-    public float turnSpeed = 90f;
-    public Vector2 direction;
+    [SerializeField] private float turnSpeed = 90f;
+    [SerializeField] private Vector2 direction;
     public float speedCoin;
-    
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-        InvokeRepeating("RespCoin", 2f, 3f);
-    }
 
     // Update is called once per frame
     void Update()
