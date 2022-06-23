@@ -64,7 +64,9 @@ public class MenuManager : MonoBehaviour
         {
             SoundManager.Instance.Play(buttonClicked);
         }
-        else SoundManager.Instance.EffectsSource.UnPause();
+        else { SoundManager.Instance.EffectsSource.UnPause();
+            }
+       
         SceneTransition.SwitchToScene("Game");
 
      
@@ -72,12 +74,21 @@ public class MenuManager : MonoBehaviour
     
     public void OnSettingsClicked()
     {
-        if (SFX.isOn == true)
-        {
-            SoundManager.Instance.Play(buttonClicked);
 
+        if (!SoundManager.Instance.musicOn)
+        {
+            Music.isOn = false;
         }
-        else SoundManager.Instance.EffectsSource.UnPause();
+       
+
+        if (SFX.isOn == true)
+            {
+                SoundManager.Instance.Play(buttonClicked);
+
+            }
+            else { SoundManager.Instance.EffectsSource.UnPause();
+                SFX.isOn = false;
+            }
         menuAnimator.SetTrigger("setClicked");
         
     }
