@@ -6,7 +6,7 @@ public class GameManager : MonoBehaviour
 {
     public AudioClip gameMusic;
     [SerializeField] private GameObject coin;
-       
+    [SerializeField] private GameObject player;
         private float spawnRange = 4;
    
     
@@ -19,9 +19,15 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //Instantiate(player);
         InvokeRepeating("RespCoin", 2f, 3f);
+
+
         if (SoundManager.Instance.musicOn)
+        {
+            SoundManager.Instance.MusicSource.Pause();
             SoundManager.Instance.PlayGameMusic(gameMusic);
+        }
         else SoundManager.Instance.GameSource.Pause();
 
     }

@@ -24,11 +24,11 @@ public class LoadAssetBundle : MonoBehaviour
         AssetBundle bundle = wWW.assetBundle;
         if(wWW.error == null)
         {
-            GameObject obj = (GameObject)bundle.LoadAsset("xbot");
+            GameObject obj = bundle.LoadAsset("xbot") as GameObject;
             
             Instantiate(obj);
-           
-            
+            bundle.Unload(false);
+
         }
         else
         {
