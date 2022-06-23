@@ -25,8 +25,9 @@ public class MenuManager : MonoBehaviour
         if (SoundManager.Instance.musicOn == false)
             SoundManager.Instance.MusicSource.Stop();
         else
+        {   SoundManager.Instance.GameSource.Stop();
             SoundManager.Instance.PlayMusic(clip);
-        
+        }
     }
 
     // Update is called once per frame
