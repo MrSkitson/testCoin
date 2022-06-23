@@ -52,10 +52,16 @@ public class MenuManager : MonoBehaviour
     }
     public void SFXToggle()
     {
-            if (SFX.isOn == false)
+        if (SFX.isOn == false)
+        {
             SoundManager.Instance.EffectsSource.Stop();
-        else SoundManager.Instance.EffectsSource.Stop();
-        
+            SoundManager.Instance.sfxOn = false;
+        }
+        else
+        {
+            SoundManager.Instance.EffectsSource.Stop();
+            SoundManager.Instance.sfxOn = true;
+        }
     }
 
     public void OnclickButtonStart()
@@ -79,16 +85,20 @@ public class MenuManager : MonoBehaviour
         {
             Music.isOn = false;
         }
-       
+       if(!SoundManager.Instance.sfxOn)
+        {
+            SFX.isOn = false;
+        }
+        
 
         if (SFX.isOn == true)
             {
                 SoundManager.Instance.Play(buttonClicked);
 
             }
-            else { SoundManager.Instance.EffectsSource.UnPause();
-                SFX.isOn = false;
-            }
+            else  SoundManager.Instance.EffectsSource.UnPause();
+                
+            
         menuAnimator.SetTrigger("setClicked");
         
     }

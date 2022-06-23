@@ -13,6 +13,7 @@ public class SoundManager : MonoBehaviour
 	// Singleton instance.
 	public static SoundManager Instance = null;
 	public bool musicOn = true;
+	public bool sfxOn = true;
 
 	// Initialize the singleton instance.
 	private void Awake()
