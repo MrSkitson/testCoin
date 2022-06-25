@@ -30,10 +30,7 @@ public class LoadAssetBundle : MonoBehaviour
             bundle.Unload(false);
 
         }
-        else
-        {
-            Debug.Log(wWW.error);
-        }
+        
 
     }
 }

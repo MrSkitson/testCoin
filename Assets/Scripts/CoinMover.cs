@@ -5,7 +5,7 @@ using UnityEngine;
 public class CoinMover : MonoBehaviour
 {
     public Vector3 startPosition;
-    public Vector3 endPosition;
+    private Vector3 endPosition;
     public float step;
     private float progress;
     private float spawnRange = 3.5f;
@@ -19,7 +19,7 @@ public class CoinMover : MonoBehaviour
         //get start posotion Coin 
         transform.position = startPosition;
         //gset end position  Coin
-        endPosition = new Vector3(spawnPosX, endPosition.y, spawnPosZ);
+        endPosition = new Vector3(spawnPosX, 1.5f, spawnPosZ);
     }
 
     private void FixedUpdate()
