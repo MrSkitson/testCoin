@@ -13,11 +13,9 @@ public class MobileController : MonoBehaviour, IDragHandler, IPointerUpHandler, 
     {
         joystickBG = GetComponent<Image>();
         joystick = transform.GetChild(0).GetComponent<Image>();
+    
     }
-
-
-
-    public virtual void OnDrag(PointerEventData ped)
+     public virtual void OnDrag(PointerEventData ped)
     {
         Vector2 pos;
         //if statment colculate coordinate put on joystick

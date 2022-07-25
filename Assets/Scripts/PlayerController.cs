@@ -6,7 +6,7 @@ public class PlayerController : MonoBehaviour
 {
     private Animator animator;
     private Rigidbody rb;
-    public float speed = 2f;
+    [SerializeField]private float speed = 2f;
     public float rotationSpeed = 10f;
 
     private MobileController mobileController;
@@ -15,21 +15,15 @@ public class PlayerController : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
-        
         mobileController = GameObject.FindGameObjectWithTag("Joystick").GetComponent<MobileController>();
     }
 
     // Update is called once per frame
     void Update()
     {
-
-        PlayerMove();
+     PlayerMove();
     }
-    private void FixedUpdate()
-    {
-        
-    }
-
+    
     private void PlayerMove()
     {
         //float h = Input.GetAxis("Horizontal");
@@ -41,9 +35,9 @@ public class PlayerController : MonoBehaviour
         {
             transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(directionvector), Time.deltaTime * 10);
         }
+        //set animation speed
         animator.SetFloat("speed", Vector3.ClampMagnitude(directionvector, 1).magnitude);
-
-
+        //add rb.
         rb.velocity = Vector3.ClampMagnitude(directionvector, 1) * speed;
     }
 }

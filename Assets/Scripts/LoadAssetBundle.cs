@@ -25,12 +25,9 @@ public class LoadAssetBundle : MonoBehaviour
         if(wWW.error == null)
         {
             GameObject obj = bundle.LoadAsset("xbot") as GameObject;
-            
-            Instantiate(obj);
+           Instantiate(obj);
             bundle.Unload(false);
 
         }
-        
-
-    }
+   }
 }

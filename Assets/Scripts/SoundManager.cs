@@ -4,9 +4,9 @@ using UnityEngine;
 public class SoundManager : MonoBehaviour
 {
 	// Audio players components.
-	public AudioSource EffectsSource;
-	public AudioSource MusicSource;
-	public AudioSource GameSource;
+	public AudioSource EffectsSource { get; private set; }
+	public AudioSource MusicSource { get; private set; }
+	public AudioSource GameSource { get; private set; }
 	// Random pitch adjustment range.
 	public float LowPitchRange = .95f;
 	public float HighPitchRange = 1.05f;

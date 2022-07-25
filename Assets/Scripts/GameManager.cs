@@ -7,36 +7,18 @@ public class GameManager : MonoBehaviour
     public AudioClip gameMusic;
     [SerializeField] private GameObject coin;
     [SerializeField] private GameObject player;
-        private float spawnRange = 4;
+    [SerializeField] private float spawnRange = 4;
    
-    
     public float speedC = 0.05f;
 
-    public void Awake()
-    {
-
-    }
     // Start is called before the first frame update
     void Start()
     {
         //Instantiate(player);
         InvokeRepeating("RespCoin", 2f, 3f);
-
-
-        if (SoundManager.Instance.musicOn)
-        {
-            SoundManager.Instance.MusicSource.Pause();
-            SoundManager.Instance.PlayGameMusic(gameMusic);
-        }
-        else SoundManager.Instance.GameSource.Pause();
-
+        musicTurn(); 
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     public Vector3 GenerateSpawnPosition()
     {
@@ -47,17 +29,23 @@ public class GameManager : MonoBehaviour
         return randomSpown;
     }
 
-    void RespCoin()
+    public void RespCoin()
     {
 
         Instantiate(coin, GenerateSpawnPosition(), transform.rotation);
-        
+    }
 
-        //coin.gameObject.transform.position = new Vector3(transform.position.x, 1, transform.position.z) * speedC;
-
-
-        //Destroy(gameObject, timeout);
+    public void musicTurn()
+    {
+        if (SoundManager.Instance.musicOn)
+        {
+            SoundManager.Instance.MusicSource.Pause();
+            SoundManager.Instance.PlayGameMusic(gameMusic);
+        }
+        else SoundManager.Instance.GameSource.Pause();
 
 
     }
+
+
 }

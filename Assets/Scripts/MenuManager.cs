@@ -11,23 +11,13 @@ public class MenuManager : MonoBehaviour
     public Toggle SFX;
     public AudioClip clip;
     public Animator menuAnimator;
-    
-    // Start is called before the first frame update
-
-    public void Awake()
-    {
-        
-    }
+  
     void Start()
     {
       
         menuAnimator = GetComponent<Animator>();
-        if (SoundManager.Instance.musicOn == false)
-            SoundManager.Instance.MusicSource.Stop();
-        else
-        {   SoundManager.Instance.GameSource.Stop();
-            SoundManager.Instance.PlayMusic(clip);
-        }
+        MenuMusic();
+
     }
 
     // Update is called once per frame
@@ -110,4 +100,17 @@ public class MenuManager : MonoBehaviour
         else SoundManager.Instance.EffectsSource.UnPause();
         menuAnimator.SetTrigger("backClicked");
     }
+    //Method for controlling staytment music in game
+    private void MenuMusic()
+    {
+
+        if (SoundManager.Instance.musicOn == false)
+            SoundManager.Instance.MusicSource.Stop();
+        else
+        {
+            SoundManager.Instance.GameSource.Stop();
+            SoundManager.Instance.PlayMusic(clip);
+        }
+    }
+
 }

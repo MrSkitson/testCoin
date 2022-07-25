@@ -4,21 +4,22 @@ using UnityEngine;
 
 public class CoinMover : MonoBehaviour
 {
-    public Vector3 startPosition;
+    
+    [SerializeField]private Vector3 startPosition;
     private Vector3 endPosition;
-    public float step;
+    private float step;
     private float progress;
+    // set max and min number for declare spawnPosX and Y
     private float spawnRange = 3.5f;
     
     // Start is called before the first frame update
     void Start()
     {
-
         float spawnPosX = Random.Range(-spawnRange, spawnRange);
         float spawnPosZ = Random.Range(-spawnRange, spawnRange);
         //get start posotion Coin 
         transform.position = startPosition;
-        //gset end position  Coin
+        //set end position  Coin
         endPosition = new Vector3(spawnPosX, 1.5f, spawnPosZ);
     }
 
